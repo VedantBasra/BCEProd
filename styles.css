@@ -1,0 +1,41 @@
+:root {
+--retro-blue: #4E6E81;
+--retro-beige: #F9DBBB;
+--retro-red: #FF0303;
+--retro-black: #2E3840;
+--skyblue: #B3DFFC	;
+
+--tomato: #FF6347;
+--lavender: #E8E4F1;
+--oxford: #001C3D;
+--dimgray: #6E7072;
+--chefblue: #468BEC;
+
+/* legacy references used in classes */
+--scarlet: #FF6347;
+--berkeley: #001C3D;
+--night: #101012;
+--federal: #000243;
+--seasalt: #FAFAF9;
+}
+html { scroll-behavior: smooth; }
+
+
+@keyframes fadeUp {
+0% { opacity: 0; transform: translateY(30px); }
+100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+0% { opacity: 0; transform: scale(0.9); }
+100% { opacity: 1; transform: scale(1); }
+}
+
+
+.fade-up {
+animation: fadeUp 1s ease-out both;
+}
+
+.zoom-in {
+animation: zoomIn 1s ease-out both;
+}
