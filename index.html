@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bharat C Enterprise | BCE </title>
+  <link rel="icon" href="assets/BCE.Favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body x-data="{ open: false }" class="bg-white text-gray-800 font-sans">
+
+  <!-- Floating Menu Button -->
+  <button @click="open = true"
+    class="fixed top-4 left-4 z-50 bg-[var(--oxford)] text-white p-4 rounded-full shadow-lg hover:bg-[var(--tomato)] focus:outline-none">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- Fullscreen Modal Menu -->
+  <div x-show="open" x-transition class="fixed inset-0 z-50 backdrop-blur-md bg-black/30 flex items-center justify-center">
+    <div class="bg-white/90 p-10 rounded-xl shadow-lg max-w-md w-full text-center relative">
+      <button @click="open = false" class="absolute top-4 right-4 text-[var(--dim)] hover:text-[var(--red)] text-2xl">✕</button>
+      <nav class="space-y-6 text-lg font-semibold">
+        <a href="#hero" @click="open = false" class="block text-[var(--oxford)] hover:text-[var(--red)]">Home</a>
+        <a href="#about" @click="open = false" class="block text-[var(--oxford)] hover:text-[var(--red)]">About</a>
+        <a href="#process" @click="open = false" class="block text-[var(--oxford)] hover:text-[var(--red)]">Process</a>
+        <a href="#credentials" @click="open = false" class="block text-[var(--oxford)] hover:text-[var(--red)]">Credentials</a>
+        <a href="#products" @click="open = false" class="block text-[var(--oxford)] hover:text-[var(--red)]">Products</a>
+        <a href="#contact" @click="open = false" class="block text-[var(--oxford)] hover:text-[var(--red)]">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="hero" class="min-h-screen bg-cover bg-center text-white flex flex-col items-center justify-center text-center px-4" style="background-image: url('assets/warehousing.png')">
+    <div 
+      x-data="{ visible: true }" 
+      x-init="window.addEventListener('scroll', () => visible = window.scrollY < 200)"
+      :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'"
+      class="transition-all duration-700 ease-in-out bg-white bg-opacity-90 p-10 rounded-xl shadow-xl transform">      
+      <img src="assets/BCE-Logo.gif" alt="BCE Logo" class="mx-auto w-24 mb-4">
+      <h1 class="text-5xl font-bold mb-4 text-[var(--oxford)]">Bharat C Enterprises</h1>
+      <p class="text-lg max-w-2xl mx-auto text-[var(--dimgray)]">Trusted name in chemical trading since 1979. Delivering quality, reliability, and service excellence across India.</p>
+    </div>
+  </section>
+
+
+    <!-- About -->
+    <section id="about" class="min-h-screen bg-[var(--retro-beige)] text-[var(--night)] flex items-center justify-center px-8 py-12">
+    <div class="max-w-5xl text-center">
+        <h2 class="text-4xl font-bold text-[var(--berkeley)] mb-6">About Us</h2>
+        <p class="text-lg leading-relaxed text-gray-700 opacity-100">
+        Bharat C Enterprises was founded in 1979 by <strong>Subhash C. Basra</strong>, a visionary entrepreneur who built the company from the ground up with a strong emphasis on integrity, quality, and dependable service. Under his leadership, the company established itself as a trusted chemical trading partner for manufacturers across India.
+        <br><br>
+        In 2004–2005, his son <strong>Vinay Basra,</strong> took over the reins. With a forward-looking approach and deep respect for the company’s core values, he introduced modern business practices, expanded operations, and strengthened the company's presence across key sectors.
+        <br><br>
+        Under his leadership, Bharat C Enterprises has grown, serving major industries such as <strong>cosmetics, pharmaceuticals, cleaning agents, and textiles</strong>. The company is known for its quality-assured products, prompt service, and long-standing client relationships.
+        <br><br>
+        Today, Bharat C continues to evolve while staying rooted in the legacy of excellence that has defined it for over four decades.
+        </p>
+    </div>
+    </section>
+
+  <!-- Process -->
+  <section id="process" class="bg-[var(--skyblue)] min-h-screen flex items-center px-6 py-16">
+    <div class="bg-[var(--skyblue)] max-w-6xl mx-auto w-full text-center" x-data="{ slide: 1 }" x-init="setInterval(() => { slide = slide === 3 ? 1 : slide + 1 }, 6000)">
+      <h2 class="text-4xl font-bold text-[var(--berkeley)] mb-10">Our Process</h2>
+  
+      <div class=" relative h-[500px] overflow-hidden rounded-xl shadow-lg">
+        
+        <!-- Slide 1 -->
+        <div
+          x-show="slide === 1"
+          x-transition:enter="transition-all duration-700 ease-out"
+          x-transition:enter-start="opacity-0 -translate-x-16"
+          x-transition:enter-end="opacity-100 translate-x-0"
+          x-transition:leave="transition-all duration-500 ease-in"
+          x-transition:leave-start="opacity-100 translate-x-0"
+          x-transition:leave-end="opacity-0 translate-x-16"
+          class="absolute inset-0 grid md:grid-cols-2 gap-8 items-center p-6 bg-white"
+        >
+          <img src="assets/planning.png" alt="Planning" class="rounded-xl w-full h-auto object-cover" />
+          <div class="text-left px-4 md:px-8 py-4">
+            <h3 class="text-2xl font-semibold text-[var(--berkeley)] mb-2">Planning</h3>
+            <p class="text-gray-700 text-lg">Strategic groundwork ensures client needs are understood and operations are optimized from the start.</p>
+          </div>
+        </div>
+  
+        <!-- Slide 2 -->
+        <div
+          x-show="slide === 2"
+          x-transition:enter="transition-all duration-700 ease-out"
+          x-transition:enter-start="opacity-0 translate-x-16"
+          x-transition:enter-end="opacity-100 translate-x-0"
+          x-transition:leave="transition-all duration-500 ease-in"
+          x-transition:leave-start="opacity-100 translate-x-0"
+          x-transition:leave-end="opacity-0 -translate-x-16"
+          class="absolute inset-0 grid md:grid-cols-2 gap-8 items-center p-6 bg-white"
+        >
+          <img src="assets/warehousing.png" alt="Warehousing" class="rounded-xl w-full h-auto object-cover" />
+          <div class="text-left px-4 md:px-8 py-4">
+            <h3 class="text-2xl font-semibold text-[var(--berkeley)] mb-2">Warehousing</h3>
+            <p class="text-gray-700 text-lg">Modern storage and supply chain infrastructure ensures safe, organized, and scalable inventory control.</p>
+          </div>
+        </div>
+  
+        <!-- Slide 3 -->
+        <div
+          x-show="slide === 3"
+          x-transition:enter="transition-all duration-700 ease-out"
+          x-transition:enter-start="opacity-0 -translate-x-16"
+          x-transition:enter-end="opacity-100 translate-x-0"
+          x-transition:leave="transition-all duration-500 ease-in"
+          x-transition:leave-start="opacity-100 translate-x-0"
+          x-transition:leave-end="opacity-0 translate-x-16"
+          class="absolute inset-0 grid md:grid-cols-2 gap-8 items-center p-6 bg-white"
+        >
+          <img src="assets/delivery.png" alt="Delivery" class="rounded-xl w-full h-auto object-cover" />
+          <div class="text-left px-4 md:px-8 py-4">
+            <h3 class="text-2xl font-semibold text-[var(--berkeley)] mb-2">Delivery Management</h3>
+            <p class="text-gray-700 text-lg">Timely dispatch and route optimization ensure clients receive their goods reliably and efficiently.</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Navigation Dots -->
+      <div class="flex justify-center mt-8 space-x-4">
+        <button @click="slide = 1" :class="slide === 1 ? 'bg-[var(--scarlet)]' : 'bg-gray-300'" class="w-4 h-4 rounded-full transition"></button>
+        <button @click="slide = 2" :class="slide === 2 ? 'bg-[var(--scarlet)]' : 'bg-gray-300'" class="w-4 h-4 rounded-full transition"></button>
+        <button @click="slide = 3" :class="slide === 3 ? 'bg-[var(--scarlet)]' : 'bg-gray-300'" class="w-4 h-4 rounded-full transition"></button>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Credentials -->
+  <section id="credentials" class="min-h-screen bg-[var(--lavender)] text-black flex items-center px-6 py-16">
+    <div id="credentials-content" class="max-w-5xl mx-auto text-center opacity-0 translate-y-4 transition-all duration-700 ease-in-out">
+      <h2 class="text-4xl font-bold mb-6">Dealer Credentials</h2>
+      <p class="text-lg mb-4">Bharat C Enterprises is a government-registered chemical dealer officially recognized since <strong>5th September, 1979</strong>.</p>
+      <p class="text-md leading-relaxed mb-6">
+        <strong>Name:</strong> Bharat C Enterprise<br>
+        <strong>Address:</strong> 71/6i & Rama Road Industrial Area, New Delhi – 110015<br>
+        <strong>GSTIN:</strong> 07AAFPB4639R2ZA<br>
+        <strong>Status:</strong> Registered | <strong>Returns:</strong> Quarterly
+      </p>
+      <a href="https://services.gst.gov.in/services/searchtp" target="_blank" class="bg-white text-[var(--scarlet)] px-6 py-2 rounded font-semibold hover:bg-gray-200 transition">View Dealer Credentials →</a>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="min-h-screen bg-[var(--retro-blue)] zoom-in text-white flex items-center px-6 py-16">
+    <div id="products-content" class="max-w-6xl mx-auto text-center opacity-0 translate-y-4 transition-all duration-700 ease-in-out">
+      <h2 class="text-4xl font-bold mb-6">Products & Industries Served</h2>
+      <p class="text-lg mb-10">We offer a comprehensive range of industrial and specialty chemicals used in manufacturing detergents, personal care items, pharmaceuticals, and more.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="p-4 bg-white text-[var(--berkeley)] rounded shadow transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-[var(--retro-beige)]">SLES / SLS (Powder & Liquid)</div>
+        <div class="p-4 bg-white text-[var(--berkeley)] rounded shadow transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-[var(--retro-beige)]">Cocamidopropyl Betaine (CAPB)</div>
+        <div class="p-4 bg-white text-[var(--berkeley)] rounded shadow transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-[var(--retro-beige)]">Emulsifying Wax</div>
+        <div class="p-4 bg-white text-[var(--berkeley)] rounded shadow transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-[var(--retro-beige)]">Stearic Acid</div>
+        <div class="p-4 bg-white text-[var(--berkeley)] rounded shadow transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-[var(--retro-beige)]">Glycerine & PEGs</div>
+        <div class="p-4 bg-white text-[var(--berkeley)] rounded shadow transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-[var(--retro-beige)]">Silicone Oils & Emulsions</div>
+      </div>
+      <p class="text-white mt-6 underline">
+        <a href="https://www.indiamart.com/bharatc-enterprise/" target="_blank">View full catalog on IndiaMART →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="min-h-screen bg-[var(--federal)] text-white flex flex-col justify-center px-8 py-16">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
+        <p class="mb-4">For quotes, inquiries, or collaboration:</p>
+        <ul class="space-y-3 text-lg">
+          <li><strong>Phone:</strong> +91 9868166764 / +91 9899116979</li>
+          <li><strong>Email:</strong> bharatce@yahoo.co.in </li>
+          <li><strong>Address:</strong> 71/6i Rama Road Industrial Area, New Delhi – 110015</li>
+        </ul>
+      </div>
+      <div>
+        <form action="https://submit-form.com/BMqRCkT3H" method="POST" class="bg-white rounded p-6 text-black shadow-lg">
+            <h3 class="text-xl font-semibold mb-4">Send a Message</h3>
+            <input type="text" name="name" placeholder="Your Name" class="w-full mb-3 px-4 py-2 border rounded" required>
+            <input type="email" name="email" placeholder="Your Email" class="w-full mb-3 px-4 py-2 border rounded" required>
+            <textarea name="message" placeholder="Your Message" rows="4" class="w-full mb-4 px-4 py-2 border rounded" required></textarea>
+            <button type="submit" class="bg-[var(--scarlet)] text-white font-semibold px-6 py-2 rounded hover:bg-red-600 transition">Send</button>
+        </form>
+      </div>
+    </div>
+    <div class="mt-16">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41425.38404230008!2d77.10368569224215!3d28.66018376195857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02ff00125bcb%3A0xbbcdf94737238709!2sBharat%20C%20Enterprise!5e1!3m2!1sen!2sca!4v1746150485757!5m2!1sen!2sca" width="100%" height="350" frameborder="0" class="rounded-lg shadow-lg" allowfullscreen></iframe>
+    </div>
+  </section>
+
+
+  <footer class="bg-[var(--night)] text-white text-center py-6">
+    <p class="text-sm">&copy; 2025 Bharat C Enterprises (BCE)™. All rights reserved.</p>
+    <p class="text-sm mt-1">Designed & Developed by <a href="https://vedantbasra.me/">Vedant Basra</a> </p>
+  </footer>
+</body>
+
+</html>
