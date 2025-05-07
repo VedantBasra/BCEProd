@@ -57,3 +57,24 @@ const observer = new IntersectionObserver(
 
 observer.observe(el);
 });
+
+
+window.addEventListener("DOMContentLoaded", async () => {
+  const form = document.querySelector("form");
+  const botpoison = new Botpoison({
+    publicKey: "pk_7f1a76fd-3252-4d56-9106-4bbdf62a8ffe"
+  });
+
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const { solution } = await botpoison.challenge();
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "_botpoison";
+      input.value = solution;
+      form.appendChild(input);
+      form.submit();
+    });
+  }
+});
