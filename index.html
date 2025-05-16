@@ -181,32 +181,45 @@
         <p class="mb-4">For quotes, inquiries, or collaboration:</p>
         <ul class="space-y-3 text-lg">
           <li><strong>Phone:</strong> +91 9868166764 / +91 9899116979</li>
-          <li><strong>Email:</strong> bharatce@yahoo.co.in </li>
+          <li><strong>Email:</strong> bharatce@yahoo.co.in</li>
           <li><strong>Address:</strong> 71/6i Rama Road Industrial Area, New Delhi – 110015</li>
         </ul>
       </div>
+
       <div>
-        <form action="https://submit-form.com/BMqRCkT3H" method="POST" class="bg-white rounded p-6 text-black shadow-lg">
-            <h3 class="text-xl font-semibold mb-4">Send a Message</h3>
-            
-            <input type="text" name="name" placeholder="Your Name" class="w-full mb-3 px-4 py-2 border rounded" required>
-            <input type="email" name="email" placeholder="Your Email" class="w-full mb-3 px-4 py-2 border rounded" required>
-            <textarea name="message" placeholder="Your Message" rows="4" class="w-full mb-4 px-4 py-2 border rounded" required></textarea>
+        <form action="https://formsubmit.co/vedantbasra@gmail.com" method="POST" class="bg-white rounded p-6 text-black shadow-lg">
+          <h3 class="text-xl font-semibold mb-4">Send a Message</h3>
 
-          
-            <button type="submit" class="bg-[var(--scarlet)] text-white font-semibold px-6 py-2 rounded hover:bg-red-600 transition">Send</button>
-          </form>
-          <script async src="https://unpkg.com/@botpoison/browser"></script>
+          <input type="text" name="name" placeholder="Your Name" required class="w-full mb-3 px-4 py-2 border rounded">
+          <input type="email" name="email" placeholder="Your Email" required class="w-full mb-3 px-4 py-2 border rounded">
+          <textarea name="message" placeholder="Your Message" rows="4" required class="w-full mb-4 px-4 py-2 border rounded"></textarea>
 
-          
+          <!-- Honeypot anti-spam -->
+          <input type="text" name="_honey" style="display:none">
+
+          <!-- Spam blacklist -->
+          <input type="hidden" name="_blacklist" value="viagra, bitcoin, casino, loan, porn, scam, sex">
+
+          <!-- Enable FormSubmit CAPTCHA -->
+          <input type="hidden" name="_captcha" value="true">
+
+          <!-- reCAPTCHA -->
+          <div class="g-recaptcha mb-4" data-sitekey="6Lc2cj0rAAAAAM28DbyVy4K2Jp2Sl8lXosJVzIir"></div>
+
+          <button type="submit" class="bg-[var(--scarlet)] text-white font-semibold px-6 py-2 rounded hover:bg-red-600 transition">Send</button>
+        </form>
       </div>
     </div>
+
     <div class="mt-16">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41425.38404230008!2d77.10368569224215!3d28.66018376195857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02ff00125bcb%3A0xbbcdf94737238709!2sBharat%20C%20Enterprise!5e1!3m2!1sen!2sca!4v1746150485757!5m2!1sen!2sca" width="100%" height="350" frameborder="0" class="rounded-lg shadow-lg" allowfullscreen></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41425.38404230008!2d77.10368569224215!3d28.66018376195857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02ff00125bcb%3A0xbbcdf94737238709!2sBharat%20C%20Enterprise!5e1!3m2!1sen!2sca!4v1746150485757!5m2!1sen!2sca"
+        width="100%" height="350" frameborder="0" class="rounded-lg shadow-lg" allowfullscreen>
+      </iframe>
     </div>
   </section>
 
-
+  <!-- Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <footer class="bg-[var(--night)] text-white text-center py-6">
     <p class="text-sm">&copy; 2025 Bharat C Enterprises (BCE)™. All rights reserved.</p>
